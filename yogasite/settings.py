@@ -102,11 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 
-
-
-ADMINS = [('RegalAbode', 'regalabode@gmail.com'), ]
-
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -146,15 +142,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticcollection')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
+    os.path.join(BASE_DIR, 'static')
 ]
 STATIC_URL = '/static/'
 MEDIA_URL = '/static/img/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-VENV_PATH = os.path.dirname(BASE_DIR)
-STATIC_ROOT = os.path.join(VENV_PATH, 'static_root')
+
 
 # TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'),os.path.join(BASE_DIR, 'media'),]
 
