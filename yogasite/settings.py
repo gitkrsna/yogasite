@@ -102,9 +102,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://theyogastudio.herokuapp.com/', 'http://127.0.0.1:8000/',]
+ALLOWED_HOSTS = ['https://theyogastudio.herokuapp.com', '127.0.0.1',]
 
 
 # Application definition
