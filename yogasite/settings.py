@@ -104,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://theyogastudio.herokuapp.com', '127.0.0.1',]
+ALLOWED_HOSTS = ['theyogastudio.herokuapp.com', '127.0.0.1',]
 
 
 # Application definition
