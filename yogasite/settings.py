@@ -102,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -140,14 +140,19 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+# The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
-MEDIA_URL = '/static/img/'
+
+# The absolute path to the directory where collectstatic will collect static files for deployment.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
@@ -181,82 +186,7 @@ IMAGE_SIZE = 10 * 1024 * 1024
 
 
 
-#SESSION_COOKIE_DOMAIN = ".automate.org"
 
 
 
-FILE_UPLOAD_PERMISSIONS = 0o755
-DATA_UPLOAD_MAX_NUMBER_FIELDS = None
-LOGIN_URL = "/accounts/signin/"
-TIME_PERIOD_IN_SECONDS = 90 * 24 * 60 * 60
 
-
-# Logging settings
-
-
-LOGFILE_SIZE = 10 * 1024 * 1024
-LOGFILE_COUNT = 10
-SITE_ID = 1
-#LOG_BASE_DIRECTORY = '/var/log/automate/'
-
-DURATION_DISCOUNT = {"1": 0, "2": 30, "3": 40}
-'''LOGGING = {
-    'version': 1,
-    'formatters': {
-        'verbose': {
-            'format': '%(asctime)s | %(levelname)s | %(module)s [%(process)d %(thread)d] | [%(filename)s:%(lineno)s - %(funcName)s() ] | \n%(message)s'
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse',
-        }
-    },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
-        },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'maxBytes': LOGFILE_SIZE,
-            'backupCount': LOGFILE_COUNT,
-            'formatter': 'verbose'
-        },
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file', 'mail_admins'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-        'smtp': {
-            'handlers': ['file', 'mail_admins'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'contactlist_manager': {
-            'handlers': ['file', 'mail_admins'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}'''
-
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'mailprocess.authentication.APIAuthentication',
-
-    ]
-}
